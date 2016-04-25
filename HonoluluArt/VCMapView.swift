@@ -13,6 +13,8 @@ import MapKit
 //to handle some importants methods
 extension ViewController: MKMapViewDelegate {
     
+    //MARK: MKMapViewDelegate
+    
     //initialize the view for the annotation
     //this method gets called every time a new annotation is added to the map
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -37,5 +39,22 @@ extension ViewController: MKMapViewDelegate {
             return view
         }
         return nil
+    }
+    
+    
+    
+    //MARK: Maps app setup
+    
+    //gets called when user taps the info button in annotation callout
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        //Artwork objects that belongs to tapped pin
+        let location = view.annotation as! Artwork
+        
+        //set launch options
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        
+        //launch the Maps app
+        location.mapItem().openInMapsWithLaunchOptions(launchOptions)
     }
 }

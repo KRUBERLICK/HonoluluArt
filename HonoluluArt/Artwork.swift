@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import AddressBook
 
 //defines the Artwork class for creating annotations on the map view
 class Artwork: NSObject, MKAnnotation {
@@ -24,6 +25,8 @@ class Artwork: NSObject, MKAnnotation {
         return locationName
     }
     
+    
+    
     //MARK: Initializers
     
     init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
@@ -35,5 +38,20 @@ class Artwork: NSObject, MKAnnotation {
         self.coordinate = coordinate
         
         super.init()
+    }
+    
+    
+    
+    //MARK: Maps app setup
+    
+    //open maps app when user clicks on info button in annotation callout
+    func mapItem() -> MKMapItem {
+        let addressDictionary = [String(kABPersonAddressStreetKey): subtitle]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary as? [String : String])
+        
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = title
+        
+        return mapItem
     }
 }
