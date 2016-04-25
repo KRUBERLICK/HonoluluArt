@@ -21,7 +21,11 @@ extension ViewController: MKMapViewDelegate {
         
         //try to cast given annotation to Artwork class
         if let annotation = annotation as? Artwork {
+            
+            //as the number of different annotations types can be big, it's neccessary to
+            //use the unique id for particular annotation type, to avoid some unexpected behavior
             let identifier = "pin"
+            
             var view: MKAnnotationView
             
             //check if a reusable annotation is available
@@ -51,7 +55,7 @@ extension ViewController: MKMapViewDelegate {
         //Artwork objects that belongs to tapped pin
         let location = view.annotation as! Artwork
         
-        //set launch options
+        //set launch options with driving mode as default
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         
         //launch the Maps app

@@ -67,7 +67,6 @@
 		5B4159531CCE9918006DE869 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B4159541CCE993C006DE869 /* JSON.swift */,
 				5B4159551CCE993C006DE869 /* PublicArt.json */,
 			);
 			name = "Supporting Files";
@@ -97,6 +96,7 @@
 				5B4159531CCE9918006DE869 /* Supporting Files */,
 				5B48F5791CCE9412009BE1BB /* AppDelegate.swift */,
 				5B48F57B1CCE9412009BE1BB /* ViewController.swift */,
+				5B4159541CCE993C006DE869 /* JSON.swift */,
 				5B41595A1CCE9CAE006DE869 /* VCMapView.swift */,
 				5B4159581CCE9A2E006DE869 /* Artwork.swift */,
 				5B48F57D1CCE9412009BE1BB /* Main.storyboard */,

@@ -8,6 +8,10 @@
 
 import Foundation
 import MapKit
+
+//importing the AddressBook framework besause it contains
+//some dictionary key constants such as kABPersonAddressStreetKey, which
+//we need to set the address or city or state fields of a location
 import AddressBook
 
 //defines the Artwork class for creating annotations on the map view
@@ -44,14 +48,49 @@ class Artwork: NSObject, MKAnnotation {
     
     //MARK: Maps app setup
     
-    //open maps app when user clicks on info button in annotation callout
+    //create the MKMapItem for Maps app
+    //Maps is able to read this MKMapItem object and display correct thing
     func mapItem() -> MKMapItem {
         let addressDictionary = [String(kABPersonAddressStreetKey): subtitle]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary as? [String : String])
-        
         let mapItem = MKMapItem(placemark: placemark)
+        
         mapItem.name = title
         
         return mapItem
+    }
+    
+    
+    
+    //MARK: JSON Parsing
+    
+    //parse JSON array and create ArtWork object from it
+    class func fromJSON(json: [JSONValue]) -> Artwork? {
+        
+        //location's title
+        var title: String
+        
+        //read title from JSON or assing an empty string
+        if let titleOrNil = json[16].string {
+            title = titleOrNil
+        } else {
+            title = ""
+        }
+        
+        //read location address
+        let locationName = json[12].string
+        
+        //read discipline
+        let discipline = json[15].string
+        
+        //read latitude and longitude values
+        let latitude = (json[18].string! as NSString).doubleValue
+        let longitude = (json[19].string! as NSString).doubleValue
+        
+        //create a coordinate object from read values
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        //return initialized Artwork object
+        return Artwork(title: title, locationName: locationName!, discipline: discipline!, coordinate: coordinate)
     }
 }
