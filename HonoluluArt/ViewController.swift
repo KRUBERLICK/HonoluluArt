@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     //MARK: Map view setup
     
-    //center map view on over the given location with zoom value, initialized before
+    //center map view over the given location with zoom value, initialized before
     func centerMapOnLocation(location: CLLocation) {
         
         //setup square region
@@ -49,6 +49,18 @@ class ViewController: UIViewController {
         
         //center map's location to initial location
         centerMapOnLocation(initialLocation)
+        
+        //set the annotation that points to King David Kalakaua
+        let artwork = Artwork(title: "King David Kalakaua",
+                              locationName: "Waikiki Gateway Park",
+                              discipline: "Sculpture",
+                              coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
+        
+        //add created annotation to map view
+        mapView.addAnnotation(artwork)
+        
+        //set map view delegate
+        mapView.delegate = self
     }
 }
 

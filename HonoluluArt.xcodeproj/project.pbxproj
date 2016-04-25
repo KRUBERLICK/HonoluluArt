@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B4159561CCE993C006DE869 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4159541CCE993C006DE869 /* JSON.swift */; };
+		5B4159571CCE993C006DE869 /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B4159551CCE993C006DE869 /* PublicArt.json */; };
+		5B4159591CCE9A2E006DE869 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4159581CCE9A2E006DE869 /* Artwork.swift */; };
+		5B41595B1CCE9CAE006DE869 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41595A1CCE9CAE006DE869 /* VCMapView.swift */; };
 		5B48F57A1CCE9412009BE1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B48F5791CCE9412009BE1BB /* AppDelegate.swift */; };
 		5B48F57C1CCE9412009BE1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B48F57B1CCE9412009BE1BB /* ViewController.swift */; };
 		5B48F57F1CCE9412009BE1BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B48F57D1CCE9412009BE1BB /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B4159541CCE993C006DE869 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		5B4159551CCE993C006DE869 /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
+		5B4159581CCE9A2E006DE869 /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		5B41595A1CCE9CAE006DE869 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		5B48F5761CCE9412009BE1BB /* HonoluluArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HonoluluArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B48F5791CCE9412009BE1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B48F57B1CCE9412009BE1BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B4159531CCE9918006DE869 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B4159541CCE993C006DE869 /* JSON.swift */,
+				5B4159551CCE993C006DE869 /* PublicArt.json */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5B48F56D1CCE9412009BE1BB = {
 			isa = PBXGroup;
 			children = (
@@ -77,8 +94,11 @@
 		5B48F5781CCE9412009BE1BB /* HonoluluArt */ = {
 			isa = PBXGroup;
 			children = (
+				5B4159531CCE9918006DE869 /* Supporting Files */,
 				5B48F5791CCE9412009BE1BB /* AppDelegate.swift */,
 				5B48F57B1CCE9412009BE1BB /* ViewController.swift */,
+				5B41595A1CCE9CAE006DE869 /* VCMapView.swift */,
+				5B4159581CCE9A2E006DE869 /* Artwork.swift */,
 				5B48F57D1CCE9412009BE1BB /* Main.storyboard */,
 				5B48F5801CCE9412009BE1BB /* Assets.xcassets */,
 				5B48F5821CCE9412009BE1BB /* LaunchScreen.storyboard */,
@@ -179,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4159571CCE993C006DE869 /* PublicArt.json in Resources */,
 				5B48F5841CCE9412009BE1BB /* LaunchScreen.storyboard in Resources */,
 				5B48F5811CCE9412009BE1BB /* Assets.xcassets in Resources */,
 				5B48F57F1CCE9412009BE1BB /* Main.storyboard in Resources */,
@@ -199,7 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4159561CCE993C006DE869 /* JSON.swift in Sources */,
 				5B48F57C1CCE9412009BE1BB /* ViewController.swift in Sources */,
+				5B41595B1CCE9CAE006DE869 /* VCMapView.swift in Sources */,
+				5B4159591CCE9A2E006DE869 /* Artwork.swift in Sources */,
 				5B48F57A1CCE9412009BE1BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +414,7 @@
 				5B48F5951CCE9412009BE1BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B48F5961CCE9412009BE1BB /* Build configuration list for PBXNativeTarget "HonoluluArtTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +423,7 @@
 				5B48F5981CCE9412009BE1BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
