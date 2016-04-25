@@ -26,20 +26,27 @@ extension ViewController: MKMapViewDelegate {
             //use the unique id for particular annotation type, to avoid some unexpected behavior
             let identifier = "pin"
             
-            var view: MKAnnotationView
+            var view: MKPinAnnotationView
             
             //check if a reusable annotation is available
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
-                
+    
                 //if reusable annotation is not available - setup what to show in the callout
+                
+                
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
             }
+            
+            //set the pin color
+            view.pinColor = annotation.pinColor()
+            
             return view
         }
         return nil

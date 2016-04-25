@@ -93,4 +93,20 @@ class Artwork: NSObject, MKAnnotation {
         //return initialized Artwork object
         return Artwork(title: title, locationName: locationName!, discipline: discipline!, coordinate: coordinate)
     }
+    
+    
+    
+    //MARK: Another helper methods
+    
+    //set the pin color based on artworks's discipline
+    func pinColor() -> MKPinAnnotationColor {
+        switch discipline {
+        case "Sculpture", "Plaque":
+            return .Red
+        case "Mural", "Monument":
+            return .Purple
+        default:
+            return .Green
+        }
+    }
 }
