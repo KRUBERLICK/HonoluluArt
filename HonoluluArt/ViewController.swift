@@ -21,8 +21,21 @@ class ViewController: UIViewController {
     
     //MARK: Properties
     
-    let regionRadius: CLLocationDistance = 1000 //distance value (in meters) for the correct zoom
+    let regionRadius: CLLocationDistance = 2000 //distance value (in meters) for the correct zoom
     var artworks = [Artwork]() //artworks array
+    var locationManager = CLLocationManager()
+    
+    
+    
+    //MARK: Location manager setup
+    
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
     
     
     
@@ -47,7 +60,7 @@ class ViewController: UIViewController {
         do {
             
             //read the PublicArt.json into NSData object
-            var data: NSData = try NSData(contentsOfFile: fileName!, options: .DataReadingMapped)
+            let data: NSData = try NSData(contentsOfFile: fileName!, options: .DataReadingMapped)
             
             //obtain JSON object using NSJSONSerialization
             let jsonObject: AnyObject! = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
@@ -103,8 +116,12 @@ class ViewController: UIViewController {
         
         //set map view delegate
         mapView.delegate = self
-        
-        
+    }
+    
+    //check authorization status when view finishes loading
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
     }
 }
 
